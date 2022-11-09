@@ -15,7 +15,7 @@ class _BotaoIconState extends State<BotaoIcon> {
       onTap: () {},
       child: const SizedBox(
         height: 50,
-        width: 60,
+        width: 65,
         child: Card(
           shadowColor: Colors.green,
           color: Colors.white30,

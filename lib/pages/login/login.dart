@@ -174,6 +174,14 @@ class _LoginFormState extends State<LoginForm> {
                           ),
                         ),
                         onPressed: () async {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Dashbord(),
+                            ),
+                          );
+
+                          /* 
                           if (userController.text.isEmpty ||
                               passController.text.isEmpty) {
                             setState(() {
@@ -196,7 +204,7 @@ class _LoginFormState extends State<LoginForm> {
                                 ),
                               ),
                             );
-                          }
+                          } */
                         },
                       ),
                     ),

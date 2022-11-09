@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../../../Provider/PageControler/page_control.dart';
 import '../movimentos/movimentos.dart';
 import 'widget/botao_icon.dart';
 import 'widget/long_bt_icon.dart';
 import 'widget/long_profile.dart';
+import 'widget/short_bt_click.dart';
 import 'widget/short_profile.dart';
 
 class Menu extends StatefulWidget {
@@ -19,12 +22,6 @@ class _MenuState extends State<Menu> {
   Color poupanca = Colors.black38;
   Color definicao = Colors.black38;
 
-  bool dash = true;
-  bool word = false;
-  bool excel = false;
-  bool pdf = false;
-  bool setting = false;
-
   bool menuShort = true;
   @override
   Widget build(BuildContext context) {
@@ -38,208 +35,59 @@ class _MenuState extends State<Menu> {
                   children: [
                     const ShortProfile(),
                     Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            InkWell(
-                              onTap: (() {
-                                setState(() {
-                                  dash = true;
-                                  word = false;
-                                  excel = false;
-                                  pdf = false;
-                                  setting = false;
-                                });
-                              }),
-                              borderRadius: BorderRadius.circular(5),
-                              child: Container(
-                                height: 50,
-                                width: 49,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(5),
-                                  image: const DecorationImage(
-                                      image: AssetImage(
-                                          "assets/icons/dashboard.png"),
-                                      fit: BoxFit.fill),
-                                ),
-                              ),
-                            ),
-                            Visibility(
-                              visible: dash,
-                              child: const SizedBox(
-                                height: 50,
-                                width: 13,
-                                child: Card(
-                                  color: Colors.green,
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 30,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            InkWell(
-                              onTap: (() {
-                                setState(() {
-                                  dash = false;
-                                  word = true;
-                                  excel = false;
-                                  pdf = false;
-                                  setting = false;
-                                });
-                              }),
-                              borderRadius: BorderRadius.circular(5),
-                              child: Container(
-                                height: 40,
-                                width: 40,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(5),
-                                  image: const DecorationImage(
-                                      image:
-                                          AssetImage("assets/icons/word.png"),
-                                      fit: BoxFit.fill),
-                                ),
-                              ),
-                            ),
-                            Visibility(
-                              visible: word,
-                              child: const SizedBox(
-                                height: 40,
-                                width: 13,
-                                child: Card(
-                                  color: Colors.green,
-                                ),
-                              ),
-                            )
-                          ],
+                        ShortBt(
+                          onTap: () {
+                            Provider.of<PageControl>(context, listen: false)
+                                .dashVisivel();
+                          },
+                          path: 'assets/icons/dashboard.png',
+                          visivel: context.watch<PageControl>().dash,
+                          height: 55,
+                          width: 49,
                         ),
                         const SizedBox(
                           height: 20,
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            InkWell(
-                              onTap: (() {
-                                setState(() {
-                                  dash = false;
-                                  word = false;
-                                  excel = true;
-                                  pdf = false;
-                                  setting = false;
-                                });
-                              }),
-                              borderRadius: BorderRadius.circular(5),
-                              child: Container(
-                                height: 40,
-                                width: 40,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(5),
-                                  image: const DecorationImage(
-                                      image:
-                                          AssetImage("assets/icons/excel.png"),
-                                      fit: BoxFit.fill),
-                                ),
-                              ),
-                            ),
-                            Visibility(
-                              visible: excel,
-                              child: const SizedBox(
-                                height: 40,
-                                width: 13,
-                                child: Card(
-                                  color: Colors.green,
-                                ),
-                              ),
-                            )
-                          ],
+                        ShortBt(
+                          onTap: () {
+                            Provider.of<PageControl>(context, listen: false)
+                                .wordVisivel();
+                          },
+                          path: 'assets/icons/word.png',
+                          visivel: context.watch<PageControl>().word,
+                          height: 50,
+                          width: 49,
                         ),
-                        const SizedBox(
-                          height: 20,
+                        ShortBt(
+                          onTap: () {
+                            Provider.of<PageControl>(context, listen: false)
+                                .excelVisivel();
+                          },
+                          path: 'assets/icons/excel.png',
+                          visivel: context.watch<PageControl>().excel,
+                          height: 50,
+                          width: 49,
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            InkWell(
-                              onTap: (() {
-                                setState(() {
-                                  dash = false;
-                                  word = false;
-                                  excel = false;
-                                  pdf = true;
-                                  setting = false;
-                                });
-                              }),
-                              borderRadius: BorderRadius.circular(5),
-                              child: Container(
-                                height: 35,
-                                width: 40,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(5),
-                                  image: const DecorationImage(
-                                      image: AssetImage("assets/icons/pdf.png"),
-                                      fit: BoxFit.fill),
-                                ),
-                              ),
-                            ),
-                            Visibility(
-                              visible: pdf,
-                              child: const SizedBox(
-                                height: 40,
-                                width: 13,
-                                child: Card(
-                                  color: Colors.green,
-                                ),
-                              ),
-                            )
-                          ],
+                        ShortBt(
+                          onTap: () {
+                            Provider.of<PageControl>(context, listen: false)
+                                .pdfVisivel();
+                          },
+                          path: 'assets/icons/pdf.png',
+                          visivel: context.watch<PageControl>().pdf,
+                          height: 45,
+                          width: 49,
                         ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            InkWell(
-                              onTap: (() {
-                                setState(() {
-                                  dash = false;
-                                  word = false;
-                                  excel = false;
-                                  pdf = false;
-                                  setting = true;
-                                });
-                              }),
-                              borderRadius: BorderRadius.circular(5),
-                              child: Container(
-                                height: 40,
-                                width: 40,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(5),
-                                  image: const DecorationImage(
-                                      image: AssetImage(
-                                          "assets/icons/setting.png"),
-                                      fit: BoxFit.fill),
-                                ),
-                              ),
-                            ),
-                            Visibility(
-                              visible: setting,
-                              child: const SizedBox(
-                                height: 40,
-                                width: 13,
-                                child: Card(
-                                  color: Colors.green,
-                                ),
-                              ),
-                            )
-                          ],
+                        ShortBt(
+                          onTap: () {
+                            Provider.of<PageControl>(context, listen: false)
+                                .settingVisivel();
+                          },
+                          path: 'assets/icons/setting.png',
+                          visivel: context.watch<PageControl>().setting,
+                          height: 46,
+                          width: 46,
                         ),
                       ],
                     ),

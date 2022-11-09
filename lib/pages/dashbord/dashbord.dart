@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:pocketbase/pocketbase.dart';
-import 'Resumo/dash_resumo.dart';
+import 'Resumo/dash.dart';
 import 'menu/menu.dart';
 
 class Dashbord extends StatefulWidget {
-  final AdminModel dados;
-
   const Dashbord({
     Key? key,
-    required this.dados,
   }) : super(key: key);
 
   @override
@@ -26,7 +22,9 @@ class _DashbordState extends State<Dashbord> {
           child: Row(
             children: const [
               Menu(),
-              Expanded(child: DashResumo()),
+              Expanded(
+                child: Dash(),
+              ),
             ],
           ),
         ),

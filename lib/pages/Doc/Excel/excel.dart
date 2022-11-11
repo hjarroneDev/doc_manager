@@ -14,6 +14,22 @@ class ExcelDash extends StatefulWidget {
 class _ExcelDashState extends State<ExcelDash> {
   @override
   Widget build(BuildContext context) {
+    var cells = [
+      'A',
+      'B',
+      'C',
+      'D',
+      'E',
+      'F',
+      'G',
+      'H',
+      'I',
+      'J',
+      'k',
+      'L',
+      'M',
+    ];
+
     return SizedBox(
       height: double.infinity,
       child: Card(
@@ -107,6 +123,40 @@ class _ExcelDashState extends State<ExcelDash> {
                                       width: 1,
                                     ),
                                   ),
+                                ),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    for (var i = 0; i < 22; i++)
+                                      SizedBox(
+                                        child: Row(
+                                          children: [
+                                            for (String cell in cells)
+                                              Container(
+                                                decoration: const BoxDecoration(
+                                                  color: Colors.white,
+                                                  border: Border(
+                                                    bottom: BorderSide(
+                                                      color: Colors.black12,
+                                                      width: 1,
+                                                    ),
+                                                    right: BorderSide(
+                                                      color: Colors.black12,
+                                                      width: 1,
+                                                    ),
+                                                  ),
+                                                ),
+                                                height: 25,
+                                                width: 90,
+                                                child: Center(
+                                                  child: Text(''),
+                                                ),
+                                              ),
+                                          ],
+                                        ),
+                                      ),
+                                  ],
                                 ),
                               ),
                             ),

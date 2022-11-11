@@ -7,21 +7,22 @@ class RowDeck extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          decoration: BoxDecoration(
-            color: Colors.grey.shade100,
-            border: const Border(
-              bottom: BorderSide(
-                color: Colors.black12,
-                width: 1,
+        for (var i = 0; i < 22; i++)
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.grey.shade100,
+              border: const Border(
+                bottom: BorderSide(
+                  color: Colors.black12,
+                  width: 1,
+                ),
               ),
             ),
+            height: 25,
+            child: Center(
+              child: Text('${i + 1}'),
+            ),
           ),
-          height: 25,
-          child: const Center(
-            child: Text('1'),
-          ),
-        ),
       ],
     );
   }

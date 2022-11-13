@@ -20,26 +20,28 @@ class ColumnDeck extends StatelessWidget {
       'L',
       'M'
     ];
-    return Row(
-      children: [
-        for (String cell in cells)
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.grey.shade100,
-              border: const Border(
-                right: BorderSide(
-                  color: Colors.black12,
-                  width: 1,
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: [
+          for (String cell in cells)
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.grey.shade100,
+                border: const Border(
+                  right: BorderSide(
+                    color: Colors.black12,
+                    width: 1.5,
+                  ),
                 ),
               ),
+              width: 120,
+              child: Center(
+                child: Text(cell),
+              ),
             ),
-            height: 28,
-            width: 90,
-            child: Center(
-              child: Text(cell),
-            ),
-          ),
-      ],
+        ],
+      ),
     );
   }
 }

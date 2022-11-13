@@ -7,7 +7,7 @@ class RowDeck extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        for (var i = 0; i < 22; i++)
+        for (var i = 0; i < 25; i++)
           Container(
             decoration: BoxDecoration(
               color: Colors.grey.shade100,
@@ -18,7 +18,7 @@ class RowDeck extends StatelessWidget {
                 ),
               ),
             ),
-            height: 25,
+            height: 28,
             child: Center(
               child: Text('${i + 1}'),
             ),

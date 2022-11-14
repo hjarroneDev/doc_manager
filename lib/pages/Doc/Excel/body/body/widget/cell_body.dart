@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../Textfield/textfield.dart';
+
 class CellBody extends StatefulWidget {
   final int i;
   final String column;
@@ -13,24 +15,18 @@ class _CellBodyState extends State<CellBody> {
   bool ontap = false;
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        setState(() {
-          ontap = true;
-        });
-      },
-      child: Container(
-        decoration: BoxDecoration(
-            color: Colors.white,
-            border: Border.all(
-              color: (ontap) ? Colors.teal.shade600 : Colors.black12,
-              width: 0.5,
-            )),
-        height: 28,
-        width: 100,
-        child: Center(
-          child: Text('${widget.column}${widget.i + 1}'),
-        ),
+    return Container(
+      decoration: BoxDecoration(
+          color: Colors.white,
+          border: Border.all(
+            color: Colors.black12,
+            width: 0.5,
+          )),
+      height: 28,
+      width: 100,
+      child: TextFielder(
+        column: widget.column,
+        i: widget.i + 1,
       ),
     );
   }

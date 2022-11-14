@@ -1,4 +1,4 @@
-import 'package:doc_manager/pages/Doc/Excel/body/body_v1.dart';
+import 'package:doc_manager/pages/Doc/Excel/body/excel_body.dart';
 import 'package:flutter/material.dart';
 
 class ExcelDash extends StatefulWidget {
@@ -21,13 +21,9 @@ class _ExcelDashState extends State<ExcelDash> {
             children: [
               Container(
                 color: Colors.white,
-                height: 60,
+                height: 56,
               ),
-              const BodyV1(),
-              Container(
-                color: Colors.grey.shade100,
-                height: 18,
-              ),
+              const ExcelBody(),
             ],
           ),
         ),

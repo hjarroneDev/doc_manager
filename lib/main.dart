@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'Provider/Listas/listas.dart';
 import 'Provider/PageControler/page_control.dart';
 import 'pages/login/login.dart';
 
@@ -8,6 +9,7 @@ void main() {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => PageControl()),
+        ChangeNotifierProvider(create: (_) => Listas()),
       ],
       child: const MyApp(),
     ),

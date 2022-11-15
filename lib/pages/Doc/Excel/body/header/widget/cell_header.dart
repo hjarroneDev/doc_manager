@@ -1,4 +1,6 @@
+import 'package:doc_manager/Provider/Index/index.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CellHeader extends StatelessWidget {
   final String column;
@@ -6,17 +8,24 @@ class CellHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var color = (context.watch<Indexs>().columnIndex == column)
+        ? Colors.blue.shade200
+        : Colors.black12;
     return Container(
       decoration: BoxDecoration(
         color: Colors.grey.shade100,
-        border: const Border(
+        border: Border(
           right: BorderSide(
-            color: Colors.black12,
-            width: 1.5,
+            color: color,
+            width: 0.75,
           ),
           bottom: BorderSide(
-            color: Colors.black12,
+            color: color,
             width: 1.5,
+          ),
+          left: BorderSide(
+            color: color,
+            width: 0.75,
           ),
         ),
       ),

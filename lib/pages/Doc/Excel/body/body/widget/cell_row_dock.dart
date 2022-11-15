@@ -8,8 +8,10 @@ class CellRowDock extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var color =
-        (context.watch<Indexs>().row == i + 1) ? Colors.blue : Colors.black12;
+    var color = (context.watch<Indexs>().rowInsex == i + 1)
+        ? Colors.blue.shade200
+        : Colors.black12;
+
     return Container(
       decoration: BoxDecoration(
         color: Colors.grey.shade100,

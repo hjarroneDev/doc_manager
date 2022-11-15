@@ -13,37 +13,38 @@ class TextFielder extends StatefulWidget {
 }
 
 class _TextFielderState extends State<TextFielder> {
+  late Indexs cellProvider;
+
   bool readOnly = true;
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Provider.of<Indexs>(context, listen: false).getIndex(
-          widget.column,
-          widget.i,
-        );
-      },
+    cellProvider = Provider.of<Indexs>(context);
+    return InkWell(
       onDoubleTap: () {
         setState(() {
           readOnly = false;
         });
+
+        cellProvider.getIndex(widget.column, widget.i);
       },
-      child: TextFormField(
-        readOnly: readOnly,
-        textAlign: TextAlign.center,
-        decoration: const InputDecoration(
-          isDense: true,
-          contentPadding: EdgeInsets.symmetric(horizontal: 4, vertical: 9),
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: Colors.blue,
-              width: 0.8,
+      child: Expanded(
+        child: TextField(
+          readOnly: readOnly,
+          textAlign: TextAlign.center,
+          decoration: const InputDecoration(
+            isDense: true,
+            contentPadding: EdgeInsets.symmetric(horizontal: 4, vertical: 9),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Colors.blue,
+                width: 0.8,
+              ),
             ),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: Colors.black26,
-              width: 0.2,
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Colors.black26,
+                width: 0.2,
+              ),
             ),
           ),
         ),

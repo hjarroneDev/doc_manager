@@ -11,27 +11,30 @@ class CellHeader extends StatelessWidget {
     var color = (context.watch<Indexs>().columnIndex == column)
         ? Colors.blue.shade200
         : Colors.black12;
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.grey.shade100,
-        border: Border(
-          right: BorderSide(
-            color: color,
-            width: 0.75,
-          ),
-          bottom: BorderSide(
-            color: color,
-            width: 1.5,
-          ),
-          left: BorderSide(
-            color: color,
-            width: 0.75,
+    return InkWell(
+      hoverColor: Colors.green.withOpacity(0.2),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.grey.shade100,
+          border: Border(
+            right: BorderSide(
+              color: color,
+              width: 0.75,
+            ),
+            bottom: BorderSide(
+              color: color,
+              width: 1.5,
+            ),
+            left: BorderSide(
+              color: color,
+              width: 0.75,
+            ),
           ),
         ),
-      ),
-      width: 100,
-      child: Center(
-        child: Text(column),
+        width: 100,
+        child: Center(
+          child: Text(column),
+        ),
       ),
     );
   }

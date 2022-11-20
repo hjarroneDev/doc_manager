@@ -22,9 +22,7 @@ class _DashbordState extends State<Dashbord> {
           child: Row(
             children: const [
               Menu(),
-              Expanded(
-                child: Dash(),
-              ),
+              Expanded(child: Dash()),
             ],
           ),
         ),

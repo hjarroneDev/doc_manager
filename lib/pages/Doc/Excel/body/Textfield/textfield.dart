@@ -15,36 +15,28 @@ class TextFielder extends StatefulWidget {
 class _TextFielderState extends State<TextFielder> {
   late Indexs cellProvider;
 
-  bool readOnly = true;
   @override
   Widget build(BuildContext context) {
     cellProvider = Provider.of<Indexs>(context);
-    return InkWell(
-      onDoubleTap: () {
-        setState(() {
-          readOnly = false;
-        });
-
-        cellProvider.getIndex(widget.column, widget.i);
-      },
-      child: Expanded(
-        child: TextField(
-          readOnly: readOnly,
-          textAlign: TextAlign.center,
-          decoration: const InputDecoration(
-            isDense: true,
-            contentPadding: EdgeInsets.symmetric(horizontal: 4, vertical: 9),
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: Colors.blue,
-                width: 0.8,
-              ),
+    return Expanded(
+      child: TextField(
+        textAlign: TextAlign.start,
+        decoration: InputDecoration(
+          hoverColor: Colors.green.withOpacity(0.2),
+          filled: true,
+          isDense: true,
+          contentPadding:
+              const EdgeInsets.symmetric(horizontal: 4, vertical: 9),
+          focusedBorder: const OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Colors.blue,
+              width: 0.8,
             ),
-            enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: Colors.black26,
-                width: 0.2,
-              ),
+          ),
+          enabledBorder: const OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Colors.black26,
+              width: 0.2,
             ),
           ),
         ),

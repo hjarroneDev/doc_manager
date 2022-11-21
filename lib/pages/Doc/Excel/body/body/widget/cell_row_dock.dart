@@ -12,7 +12,32 @@ class CellRowDock extends StatelessWidget {
         ? Colors.blue.shade200
         : Colors.black12;
 
-    return Container(
+    return TextField(
+      readOnly: true,
+      textAlign: TextAlign.center,
+      decoration: InputDecoration(
+        hintText: '${i + 1}',
+        hoverColor: Colors.green.withOpacity(0.2),
+        filled: true,
+        fillColor: Colors.white10.withOpacity(0.45),
+        isDense: true,
+        contentPadding:
+            const EdgeInsets.symmetric(horizontal: 4, vertical: 9.5),
+        focusedBorder: const OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.blue,
+            width: 0.8,
+          ),
+        ),
+        enabledBorder: const OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.black12,
+          ),
+        ),
+      ),
+    )
+
+        /*   Container(
       decoration: BoxDecoration(
         color: Colors.grey.shade100,
         border: Border(
@@ -34,6 +59,7 @@ class CellRowDock extends StatelessWidget {
       child: Center(
         child: Text('${i + 1}'),
       ),
-    );
+    ) */
+        ;
   }
 }

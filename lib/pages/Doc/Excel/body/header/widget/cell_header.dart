@@ -11,7 +11,35 @@ class CellHeader extends StatelessWidget {
     var color = (context.watch<Indexs>().columnIndex == column)
         ? Colors.blue.shade200
         : Colors.black12;
-    return InkWell(
+    return SizedBox(
+      width: 100,
+      child: TextField(
+        readOnly: true,
+        textAlign: TextAlign.center,
+        decoration: InputDecoration(
+          hintText: column,
+          hoverColor: Colors.green.withOpacity(0.2),
+          filled: true,
+          fillColor: Colors.white10.withOpacity(0.45),
+          isDense: true,
+          contentPadding:
+              const EdgeInsets.symmetric(horizontal: 4, vertical: 9.5),
+          focusedBorder: const OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Colors.blue,
+              width: 0.8,
+            ),
+          ),
+          enabledBorder: const OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Colors.black12,
+            ),
+          ),
+        ),
+      ),
+    )
+
+        /* InkWell(
       hoverColor: Colors.green.withOpacity(0.2),
       child: Container(
         decoration: BoxDecoration(
@@ -36,6 +64,7 @@ class CellHeader extends StatelessWidget {
           child: Text(column),
         ),
       ),
-    );
+    ) */
+        ;
   }
 }

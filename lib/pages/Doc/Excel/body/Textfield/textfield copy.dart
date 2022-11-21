@@ -34,7 +34,7 @@ class _TextFielderState extends State<TextFielder> {
         controller: textFieldontroler,
         textAlign: TextAlign.start,
         decoration: InputDecoration(
-          hoverColor: Colors.greenAccent.withOpacity(0.1),
+          hoverColor: Colors.green.withOpacity(0.2),
           filled: true,
           fillColor: Colors.white,
           isDense: true,

@@ -30,7 +30,7 @@ class CellRowDock extends StatelessWidget {
           ),
         ),
       ),
-      height: 28,
+      height: 29,
       child: Center(
         child: Text('${i + 1}'),
       ),

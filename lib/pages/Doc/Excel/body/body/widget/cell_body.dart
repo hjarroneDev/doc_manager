@@ -16,20 +16,10 @@ class _CellBodyState extends State<CellBody> {
 
   @override
   Widget build(BuildContext context) {
-    double width = 0.5;
-    return Container(
-      decoration: BoxDecoration(
-          color: Colors.white,
-          border: Border.all(
-            color: Colors.black12,
-            width: width,
-          )),
-      height: 28,
-      width: 100,
-      child: TextFielder(
-        column: widget.column,
-        i: widget.i + 1,
-      ),
+    double width = 0.4;
+    return TextFielder(
+      column: widget.column,
+      i: widget.i + 1,
     );
   }
 }

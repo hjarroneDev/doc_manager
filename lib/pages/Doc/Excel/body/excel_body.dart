@@ -33,19 +33,17 @@ class _ExcelBodyState extends State<ExcelBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Column(
-        children: [
-          TableHead(
-            scrollController: _headController,
+    return Column(
+      children: [
+        TableHead(
+          scrollController: _headController,
+        ),
+        Expanded(
+          child: TableBody(
+            scrollController: _bodyController,
           ),
-          Expanded(
-            child: TableBody(
-              scrollController: _bodyController,
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

@@ -36,54 +36,59 @@ class _TableHeadState extends State<TableBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        SizedBox(
-          width: 40,
-          child: ListView(
-            controller: _firstColumnController,
-            physics: const AlwaysScrollableScrollPhysics(
-              parent: BouncingScrollPhysics(),
-            ),
-            children: [
-              for (var i = 0; i < context.watch<Listas>().rows; i++)
-                CellRowDock(
-                  i: i,
-                ),
-            ],
-          ),
-        ),
-        Flexible(
-          child: Scrollbar(
-            controller: widget.scrollController,
-            child: SingleChildScrollView(
-              controller: widget.scrollController,
-              scrollDirection: Axis.horizontal,
-              physics: const ClampingScrollPhysics(),
-              child: SizedBox(
-                width: (context.watch<Listas>().columns.length) * 100,
-                child: ListView(
-                  scrollDirection: Axis.vertical,
-                  controller: _restColumnsController,
-                  physics: const AlwaysScrollableScrollPhysics(
-                    parent: BouncingScrollPhysics(),
+    return SizedBox(
+      child: Row(
+        children: [
+          SizedBox(
+            width: 40,
+            child: ListView(
+              controller: _firstColumnController,
+              physics: const AlwaysScrollableScrollPhysics(
+                parent: BouncingScrollPhysics(),
+              ),
+              children: [
+                for (var i = 0; i < context.watch<Listas>().rows; i++)
+                  CellRowDock(
+                    i: i,
                   ),
-                  children: [
-                    for (var i = 0; i < context.watch<Listas>().rows; i++)
-                      Row(children: [
-                        for (String column in context.watch<Listas>().columns)
-                          CellBody(
-                            column: column,
-                            i: i,
-                          )
-                      ])
-                  ],
+              ],
+            ),
+          ),
+          Flexible(
+            child: Scrollbar(
+              thickness: 7,
+              interactive: true,
+              radius: const Radius.circular(5),
+              controller: widget.scrollController,
+              child: SingleChildScrollView(
+                controller: widget.scrollController,
+                scrollDirection: Axis.horizontal,
+                physics: const ClampingScrollPhysics(),
+                child: SizedBox(
+                  width: (context.watch<Listas>().columns.length) * 100,
+                  child: ListView(
+                    scrollDirection: Axis.vertical,
+                    controller: _restColumnsController,
+                    physics: const AlwaysScrollableScrollPhysics(
+                      parent: BouncingScrollPhysics(),
+                    ),
+                    children: [
+                      for (var i = 0; i < context.watch<Listas>().rows; i++)
+                        Row(children: [
+                          for (String column in context.watch<Listas>().columns)
+                            CellBody(
+                              column: column,
+                              i: i,
+                            )
+                        ])
+                    ],
+                  ),
                 ),
               ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

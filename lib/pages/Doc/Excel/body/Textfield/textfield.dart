@@ -13,20 +13,33 @@ class TextFielder extends StatefulWidget {
 }
 
 class _TextFielderState extends State<TextFielder> {
+  TextEditingController textFieldontroler = TextEditingController();
   late Indexs cellProvider;
+
+  @override
+  void initState() {
+    textFieldontroler = TextEditingController(); //default text
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     cellProvider = Provider.of<Indexs>(context);
     return Expanded(
       child: TextField(
+        onTap: () {
+          Provider.of<Indexs>(context, listen: false)
+              .getIndex(widget.column, widget.i, textFieldontroler.text);
+        },
+        controller: textFieldontroler,
         textAlign: TextAlign.start,
         decoration: InputDecoration(
           hoverColor: Colors.green.withOpacity(0.2),
           filled: true,
+          fillColor: Colors.white,
           isDense: true,
           contentPadding:
-              const EdgeInsets.symmetric(horizontal: 4, vertical: 9),
+              const EdgeInsets.symmetric(horizontal: 4, vertical: 5),
           focusedBorder: const OutlineInputBorder(
             borderSide: BorderSide(
               color: Colors.blue,
@@ -35,8 +48,7 @@ class _TextFielderState extends State<TextFielder> {
           ),
           enabledBorder: const OutlineInputBorder(
             borderSide: BorderSide(
-              color: Colors.black26,
-              width: 0.2,
+              color: Colors.black12,
             ),
           ),
         ),

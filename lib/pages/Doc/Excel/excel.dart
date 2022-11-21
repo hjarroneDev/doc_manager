@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'body/excel_body.dart';
+import 'header/header_body.dart';
+import 'header/textfield_index.dart';
 
 class ExcelDash extends StatefulWidget {
   const ExcelDash({super.key});
@@ -19,13 +21,7 @@ class _ExcelDashState extends State<ExcelDash> {
           padding: const EdgeInsets.all(4),
           child: Column(
             children: [
-              Container(
-                height: 80,
-                decoration: BoxDecoration(
-                  color: Colors.grey.withOpacity(0.2),
-                  borderRadius: BorderRadiusDirectional.circular(4),
-                ),
-              ),
+              const HeaderBar(),
               const SizedBox(
                 height: 5,
               ),

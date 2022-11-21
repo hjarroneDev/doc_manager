@@ -32,21 +32,11 @@ class _DashState extends State<Dash> {
         physics: const NeverScrollableScrollPhysics(),
         controller: context.watch<PageControl>().controller,
         children: const [
-          Expanded(
-            child: DashResumo(),
-          ),
-          Expanded(
-            child: WordDash(),
-          ),
-          Expanded(
-            child: ExcelDash(),
-          ),
-          Expanded(
-            child: PdfDash(),
-          ),
-          Expanded(
-            child: SettingDash(),
-          ),
+          DashResumo(),
+          WordDash(),
+          ExcelDash(),
+          PdfDash(),
+          SettingDash(),
         ],
       ),
     );

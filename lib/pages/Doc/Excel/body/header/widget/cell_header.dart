@@ -9,21 +9,25 @@ class CellHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var color = (context.watch<Indexs>().columnIndex == column)
-        ? Colors.blue.shade200
-        : Colors.black12;
+        ? Colors.green.withOpacity(0.2)
+        : Colors.white10.withOpacity(0.45);
+
     return SizedBox(
       width: 100,
       child: TextField(
+        onTap: () {
+          Provider.of<Indexs>(context, listen: false).getIndexCollum(column);
+        },
         readOnly: true,
         textAlign: TextAlign.center,
         decoration: InputDecoration(
           hintText: column,
           hoverColor: Colors.green.withOpacity(0.2),
           filled: true,
-          fillColor: Colors.white10.withOpacity(0.45),
+          fillColor: color,
           isDense: true,
           contentPadding:
-              const EdgeInsets.symmetric(horizontal: 4, vertical: 9.5),
+              const EdgeInsets.symmetric(horizontal: 4, vertical: 6),
           focusedBorder: const OutlineInputBorder(
             borderSide: BorderSide(
               color: Colors.blue,

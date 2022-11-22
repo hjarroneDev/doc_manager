@@ -25,6 +25,12 @@ class _TextFielderState extends State<TextFielder> {
   @override
   Widget build(BuildContext context) {
     cellProvider = Provider.of<Indexs>(context);
+
+    var color = (context.watch<Indexs>().rowInsexColor == widget.i ||
+            context.watch<Indexs>().columnIndexColor == widget.column)
+        ? Colors.greenAccent.withOpacity(0.1)
+        : Colors.white;
+
     return Expanded(
       child: TextField(
         onTap: () {
@@ -36,10 +42,10 @@ class _TextFielderState extends State<TextFielder> {
         decoration: InputDecoration(
           hoverColor: Colors.greenAccent.withOpacity(0.1),
           filled: true,
-          fillColor: Colors.white,
+          fillColor: color,
           isDense: true,
           contentPadding:
-              const EdgeInsets.symmetric(horizontal: 4, vertical: 9.5),
+              const EdgeInsets.symmetric(horizontal: 4, vertical: 6),
           focusedBorder: const OutlineInputBorder(
             borderSide: BorderSide(
               color: Colors.blue,

@@ -23,7 +23,7 @@ class _TextFielderIndexState extends State<TextFielderIndex> {
         filled: true,
         fillColor: Colors.white,
         isDense: true,
-        contentPadding: EdgeInsets.symmetric(horizontal: 6, vertical: 9),
+        contentPadding: EdgeInsets.symmetric(horizontal: 6, vertical: 6),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(
             color: Colors.transparent,

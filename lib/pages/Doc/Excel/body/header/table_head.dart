@@ -12,7 +12,7 @@ class TableHead extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 28,
+      height: 30,
       child: Row(children: [
         const IconBtSelAllShhet(),
         Expanded(

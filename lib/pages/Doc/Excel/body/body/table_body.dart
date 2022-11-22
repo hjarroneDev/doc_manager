@@ -39,19 +39,23 @@ class _TableHeadState extends State<TableBody> {
     return SizedBox(
       child: Row(
         children: [
-          SizedBox(
-            width: 40,
-            child: ListView(
-              controller: _firstColumnController,
-              physics: const AlwaysScrollableScrollPhysics(
-                parent: BouncingScrollPhysics(),
+          ScrollConfiguration(
+            behavior:
+                ScrollConfiguration.of(context).copyWith(scrollbars: false),
+            child: SizedBox(
+              width: 40,
+              child: ListView(
+                controller: _firstColumnController,
+                physics: const AlwaysScrollableScrollPhysics(
+                  parent: BouncingScrollPhysics(),
+                ),
+                children: [
+                  for (var i = 0; i < context.watch<Listas>().rows; i++)
+                    CellRowDock(
+                      i: i,
+                    ),
+                ],
               ),
-              children: [
-                for (var i = 0; i < context.watch<Listas>().rows; i++)
-                  CellRowDock(
-                    i: i,
-                  ),
-              ],
             ),
           ),
           Flexible(

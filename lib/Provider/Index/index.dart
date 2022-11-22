@@ -32,9 +32,7 @@ class Indexs extends ChangeNotifier {
     notifyListeners();
   }
 
-  getIndexCollum(
-    String col,
-  ) {
+  getIndexCollum(String col) {
     _columnColor = col;
     _rowColor = 0;
 

@@ -69,7 +69,7 @@ class _TableHeadState extends State<TableBody> {
                 scrollDirection: Axis.horizontal,
                 physics: const ClampingScrollPhysics(),
                 child: SizedBox(
-                  width: (context.watch<Listas>().columns.length) * 100,
+                  width: (context.watch<Listas>().columns.length) * 110,
                   child: ListView(
                     scrollDirection: Axis.vertical,
                     controller: _restColumnsController,

@@ -39,8 +39,9 @@ dependencies:
   pocketbase: ^0.4.1
   provider: ^6.0.4
   linked_scroll_controller: ^0.2.0
-  swayze: ^1.1.0
-  badges: ^2.0.3
+  contextmenu: ^3.0.0
+
+ 
  
 
 dev_dependencies:

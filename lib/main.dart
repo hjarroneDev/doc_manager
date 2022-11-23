@@ -6,6 +6,7 @@ import 'Provider/PageControler/page_control.dart';
 import 'pages/login/login.dart';
 
 void main() {
+  // window.document.onContextMenu.listen((evt) => evt.preventDefault());
   runApp(
     MultiProvider(
       providers: [

@@ -1,4 +1,3 @@
-import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -26,6 +25,7 @@ class _TextFielderState extends State<TextFielder> {
   @override
   Widget build(BuildContext context) {
     cellProvider = Provider.of<Indexs>(context);
+    bool readOnly = false;
 
     var color = (context.watch<Indexs>().rowInsexColor == widget.i ||
             context.watch<Indexs>().columnIndexColor == widget.column)
@@ -38,6 +38,7 @@ class _TextFielderState extends State<TextFielder> {
           Provider.of<Indexs>(context, listen: false)
               .getIndex(widget.column, widget.i, textFieldontroler.text);
         },
+        readOnly: readOnly,
         controller: textFieldontroler,
         textAlign: TextAlign.start,
         decoration: InputDecoration(
@@ -46,7 +47,7 @@ class _TextFielderState extends State<TextFielder> {
           fillColor: color,
           isDense: true,
           contentPadding:
-              const EdgeInsets.symmetric(horizontal: 4, vertical: 6),
+              const EdgeInsets.symmetric(horizontal: 4, vertical: 9),
           focusedBorder: const OutlineInputBorder(
             borderSide: BorderSide(
               color: Colors.blue,

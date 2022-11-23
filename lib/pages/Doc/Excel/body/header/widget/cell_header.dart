@@ -20,7 +20,14 @@ class CellHeader extends StatelessWidget {
       child: ContextMenuArea(
         verticalPadding: 0,
         width: 200,
-        builder: (context) => [const ColumCellMenu()],
+        builder: (context) {
+          Future.delayed(Duration.zero, () {
+            Provider.of<Indexs>(context, listen: false).getIndexCollum(column);
+          });
+          return [
+            const ColumCellMenu(),
+          ];
+        },
         child: TextField(
           onTap: () {
             Provider.of<Indexs>(context, listen: false).getIndexCollum(column);

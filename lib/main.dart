@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'Provider/Index/index.dart';
@@ -8,7 +6,6 @@ import 'Provider/PageControler/page_control.dart';
 import 'pages/login/login.dart';
 
 void main() {
-  window.document.onContextMenu.listen((evt) => evt.preventDefault());
   runApp(
     MultiProvider(
       providers: [

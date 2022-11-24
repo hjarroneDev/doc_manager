@@ -13,6 +13,15 @@ class TextFielderFormula extends StatefulWidget {
 }
 
 class _TextFielderFormulaState extends State<TextFielderFormula> {
+  TextEditingController textFieldontroler = TextEditingController();
+  late Indexs cellProvider;
+
+  @override
+  void initState() {
+    textFieldontroler = TextEditingController(); //default text
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return TextField(

@@ -38,6 +38,10 @@ class _TextFielderState extends State<TextFielder> {
           Provider.of<Indexs>(context, listen: false)
               .getIndex(widget.column, widget.i, textFieldontroler.text);
         },
+        onChanged: (textFieldontroler) {
+          Provider.of<Indexs>(context, listen: false)
+              .getIndex(widget.column, widget.i, textFieldontroler);
+        },
         readOnly: readOnly,
         controller: textFieldontroler,
         textAlign: TextAlign.start,

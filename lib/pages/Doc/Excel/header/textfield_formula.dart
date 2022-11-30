@@ -25,6 +25,7 @@ class _TextFielderFormulaState extends State<TextFielderFormula> {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      readOnly: true,
       controller: context.watch<Indexs>().indexContextControler,
       textAlign: TextAlign.start,
       decoration: const InputDecoration(
@@ -32,7 +33,7 @@ class _TextFielderFormulaState extends State<TextFielderFormula> {
         filled: true,
         fillColor: Colors.white,
         isDense: true,
-        contentPadding: EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+        contentPadding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(
             color: Colors.transparent,
